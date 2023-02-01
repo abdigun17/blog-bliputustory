@@ -7,7 +7,7 @@ import ResponsiveNavigation from '@/Components/ResponsiveNavigation';
 export default function Navbar() {
     //dan usePage digunakan karena kita tidak berada pada pages, 
     //apabila ada didalam pages, tidak perlu menambahkan usepage
-    const {auth} = usePage().props;
+    const {auth, categories_global} = usePage().props;
   return (
     <>
             <ResponsiveNavigation />
@@ -23,12 +23,15 @@ export default function Navbar() {
 
                         <div className="flex flex-1 items-center justify-between">
                             <div>
-                                <NavLink
-                                    href={route('home')}
-                                    active={route().current('home')}
-                                >
-                                    Home
-                                </NavLink>
+                                
+                                {categories_global.map((category) => (
+                                    <NavLink
+                                        href={route('home')}
+                                        active={route().current('home')}
+                                    >
+                                        Home
+                                    </NavLink>
+                                ))}
                                 
                             </div>
                             <div className="flex items-center">

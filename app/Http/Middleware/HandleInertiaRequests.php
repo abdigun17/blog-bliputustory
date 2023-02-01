@@ -32,11 +32,12 @@ class HandleInertiaRequests extends Middleware
     {
         //akan muncul kategori yg tidak mempunyai artikel, tapi
         //untuk diawal its fine
-        $categoriesOnNavigation = \App\Models\Category::get();
+        $categoriesGlobal = \App\Models\Category::get();
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),
             ],
+            'categories_global' => $categoriesGlobal,
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),

@@ -27,6 +27,7 @@ export default function Navbar() {
                                 >
                                     Home
                                 </NavLink>
+                                
                                 <NavLink href={'#'}>Blog</NavLink>
                                 <NavLink href={'#'}>Tutorials</NavLink>
                                 <NavLink href={'#'}>Packages</NavLink>
